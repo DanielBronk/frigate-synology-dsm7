@@ -32,7 +32,7 @@ jobs:
           -t $URL/$USER/$IMAGE:latest \
           -t $URL/$USER/$IMAGE:${GITHUB_SHA::8} \
           --label org.opencontainers.image.source=https://github.com/$IMAGENAME \
-          .
+          docker/.
       - name: Publish Docker image
         if: ${{ github.event_name != 'schedule' }}
         run: docker push $URL/$USER/$IMAGE --all-tags
